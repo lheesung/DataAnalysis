@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Climate Data Visualization</title>
+    <script type="text/javascript">
+      function updateGraph() {
+        var indicator = document.getElementById("indicator").value;
+        var img = document.getElementById("graphImage");
+        img.src = "/graphs/" + indicator + ".png";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Climate Data Visualization</h1>
+    <select id="indicator" onchange="updateGraph()">
+      <option value="south_korea_temp_change">
+        South Korea Temperature Change
+      </option>
+      <option value="comparison_selected_countries">
+        Comparison Among Selected Countries
+      </option>
+      <option value="global_avg_temp_change">
+        Global Average Temperature Change
+      </option>
+    </select>
+    <img
+      id="graphImage"
+      src="/graphs/south_korea_temp_change.png"
+      alt="Graph"
+      style="width: 100%; height: auto"
+    />
+  </body>
+</html>
