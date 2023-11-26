@@ -1,17 +1,16 @@
-from flask import Flask, jsonify, request
 import pandas as pd
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 CORS(app)
 
-temp_data = pd.read_csv('data/Annual_Surface_Temperature_Change.csv')
-co2_data = pd.read_csv('data/World_Atmospheric_CO2.csv')
-sea_level_data = pd.read_csv('data/Change_in_Mean_Sea_Levels.csv')
+temp_data = pd.read_csv('data/Annual_Surface_Temperature_Change.csv').fillna(0)
+co2_data = pd.read_csv('data/World_Atmospheric_CO2.csv').fillna(0)
+sea_level_data = pd.read_csv('data/Change_in_Mean_Sea_Levels.csv').fillna(0)
 
 @app.route('/data', methods=['GET'])
 @cross_origin()
-
 def get_data():
     country = request.args.get('country')
     indicator = request.args.get('indicator')
