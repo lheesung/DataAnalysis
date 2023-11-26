@@ -7,26 +7,31 @@
       function updateGraph() {
         var indicator = document.getElementById("indicator").value;
         var img = document.getElementById("graphImage");
-        img.src = "/graphs/" + indicator + ".png";
+        img.src = "../graphs/" + indicator + ".png";
       }
     </script>
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Climate Data Visualization</h1>
+  <body class="container">
+    <h1>상승하는 세계 기후</h1>
     <select id="indicator" onchange="updateGraph()">
-      <option value="south_korea_temp_change">
-        South Korea Temperature Change
-      </option>
+      <option value="south_korea_temp_change">서울 평균기온의 변화</option>
       <option value="comparison_selected_countries">
-        Comparison Among Selected Countries
+        선진국들의 평균기온 변화
       </option>
-      <option value="global_avg_temp_change">
-        Global Average Temperature Change
-      </option>
+      <option value="global_avg_temp_change">전세계 평균기온 변화</option>
     </select>
     <img
       id="graphImage"
-      src="/graphs/south_korea_temp_change.png"
+      src="../graphs/south_korea_temp_change.png"
       alt="Graph"
       style="width: 100%; height: auto"
     />
